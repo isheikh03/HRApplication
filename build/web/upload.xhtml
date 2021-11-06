@@ -49,10 +49,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2 class="text-center bg-dark text-white mb-0 pb-2">Upload Employee</h2>
+                    <h2 class="text-center bg-dark text-white pb-2">Upload Employee</h2>
                     <h:form enctype="multipart/form-data">
-                        <p:fileUpload value="#{fileUploadBeen.file}" mode="simple" allowTypes="*.xml"/>
-                        <p:commandButton value="Submit" ajax="false" action="#{fileUploadBeen.uploadFile()}" styleClass="p-mt-3 ui-button-outlined p-d-block"/>
+                        <p:fileUpload class="w-50" value="#{fileUploadBeen.file}" mode="simple" allowTypes="*.xml"/>
+                        <h:commandButton class="btn btn-success w-25" value="Update" action="#{fileUploadBeen.uploadFile()}"></h:commandButton>
                     </h:form>
                 </div>
             </div>

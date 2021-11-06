@@ -41,7 +41,7 @@ public class FileUploadBeen {
         this.file = file;
     }
 
-    public void uploadFile() throws IOException, SAXException {
+    public String uploadFile() throws IOException, SAXException {
 
         if (file != null) {
             System.out.println("File Name: " + file.getFileName());
@@ -81,9 +81,10 @@ public class FileUploadBeen {
 
             } catch (ParserConfigurationException ex) {
                 Logger.getLogger(FileUploadBeen.class.getName()).log(Level.SEVERE, null, ex);
+                return "upload";
             }
         }
-
+        return "index";
     }
 
     
