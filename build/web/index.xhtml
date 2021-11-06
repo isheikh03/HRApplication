@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Application</title>
+        <link rel="icon" type="image/png" href="img/favicon.png"/>
+        <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    </h:head>
+    <h:body>
+
+        <div class="container">
+
+            <div class="row mb-4">
+                <div class="col-md-6 m-auto">
+                    <h2 class="text-center bg-info text-white pb-2">Save Employee</h2>
+                    <h:form>
+                        <div class="form-group row mb-2">
+                            <h:outputLabel class="col-sm-4 col-form-label font-weight-bold">Employee ID</h:outputLabel>
+                            <div class="col-sm-8">
+                                <h:inputText value="#{employee.id}" class="form-control"></h:inputText>
+                            </div>
+                        </div> 
+                        <div class="form-group row mb-2">
+                            <h:outputLabel class="col-sm-4 col-form-label font-weight-bold">First Name</h:outputLabel>
+                            <div class="col-sm-8">
+                                <h:inputText value="#{employee.firstname}" class="form-control"></h:inputText>
+                            </div>
+                        </div> 
+                        <div class="form-group row mb-2">
+                            <h:outputLabel class="col-sm-4 col-form-label font-weight-bold">Last Name</h:outputLabel>
+                            <div class="col-sm-8">
+                                <h:inputText value="#{employee.lastname}" class="form-control"></h:inputText>
+                            </div>
+                        </div> 
+                        <div class="form-group row mb-2">
+                            <h:outputLabel class="col-sm-4 col-form-label font-weight-bold">Title</h:outputLabel>
+                            <div class="col-sm-8">
+                                <h:inputText value="#{employee.title}" class="form-control"></h:inputText>
+                            </div>
+                        </div>  
+                        <div class="form-group row mb-2">
+                            <h:outputLabel class="col-sm-4 col-form-label font-weight-bold">Division</h:outputLabel>
+                            <div class="col-sm-8">
+                                <h:inputText value="#{employee.division}" class="form-control"></h:inputText>
+                            </div>
+                        </div>                        
+                        <div class="form-group row mb-2">
+                            <h:outputLabel class="col-sm-4 col-form-label font-weight-bold">Building</h:outputLabel>
+                            <div class="col-sm-8">
+                                <h:inputText value="#{employee.building}" class="form-control"></h:inputText>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-2">
+                            <h:outputLabel class="col-sm-4 col-form-label font-weight-bold">Room</h:outputLabel>
+                            <div class="col-sm-8">
+                                <h:inputText value="#{employee.room}" class="form-control"></h:inputText>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-2">
+                            <h:outputLabel class="col-sm-4 col-form-label"></h:outputLabel>
+                            <div class="col-sm-8">
+                                <h:commandButton class="btn btn-success w-100" value="Save" action="#{employee.saveCategory()}"></h:commandButton>
+                            </div>
+                        </div>
+                    </h:form>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="text-center bg-info text-white mb-0 pb-2">Employee List</h2>
+                    <h:form>
+                        <h:dataTable value="#{employee.listEmployees()}" var="emp" class="table table-striped">
+                            <h:column> 
+                                <f:facet name="header">ID</f:facet>
+                                <h:outputText value="#{emp.id}"></h:outputText>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">First Name</f:facet>
+                                <h:outputText value="#{emp.firstname}"></h:outputText>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Last Name</f:facet>
+                                <h:outputText value="#{emp.lastname}"></h:outputText>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Title</f:facet>
+                                <h:outputText value="#{emp.title}"></h:outputText>
+                            </h:column><h:column>
+                                <f:facet name="header">Division</f:facet>
+                                <h:outputText value="#{emp.division}"></h:outputText>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Building</f:facet>
+                                <h:outputText value="#{emp.building}"></h:outputText>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Room</f:facet>
+                                <h:outputText value="#{emp.room}"></h:outputText>
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name="header">Edit</f:facet>
+                                <h:commandButton class="btn btn-warning pt-0 pb-0" value="Edit" action="#{employee.editEmployee(emp.id)}">
+                                </h:commandButton>              
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Delete</f:facet>
+                                <h:commandButton class="btn btn-danger pt-0 pb-0" value="Delete" action="#{employee.deleteEmployee(emp.id)}">
+                                </h:commandButton>              
+                            </h:column>
+                        </h:dataTable>
+                    </h:form> 
+
+
+                    <h:form enctype="multipart/form-data">
+                        <p:fileUpload value="#{fileUploadBeen.file}" mode="simple"/>
+
+                        <p:commandButton value="Submit" ajax="false" action="#{fileUploadBeen.uploadFile()}" styleClass="p-mt-3 ui-button-outlined p-d-block"/>
+                    </h:form>
+
+                </div>
+            </div>
+        </div>
+
+    </h:body>
+</html>

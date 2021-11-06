@@ -1,0 +1,13 @@
+CREATE DATABASE `hr_application`;
+
+DROP TABLE IF EXISTS `hr_application`.`employee`;
+CREATE TABLE  `hr_application`.`employee` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `firstname` varchar(100) NOT NULL,
+  `lastname` varchar(100) NOT NULL,
+  `title` varchar(50) NOT NULL,
+  `division` varchar(50) NOT NULL,
+  `building` varchar(50) NOT NULL,
+  `room` varchar(50) NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
