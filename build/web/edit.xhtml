@@ -8,12 +8,49 @@
         <title>Application</title>
         <link rel="stylesheet" href="css/bootstrap.min.css"/>
     </h:head>
-    <h:body>   
+    <h:body>  
+        
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+            <a class="navbar-brand" href="#">
+                <img src="img/favicon.png" width="30" height="30" class="d-inline-block align-top" alt=""></img> APPLICATION
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <h:form>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <h:commandLink class="nav-link" action="#{employee.getToPage('index')}">
+                                Employee List
+                            </h:commandLink>
+                        </li>
+                        <li class="nav-item">
+                            <h:commandLink class="nav-link" action="#{employee.getToPage('upload')}">
+                                Upload Employee
+                            </h:commandLink>
+                        </li>
+                        <li class="nav-item">
+                            <h:commandLink class="nav-link" action="#{employee.getToPage('save')}">
+                                Save Employee
+                            </h:commandLink>
+                        </li>
+                        <li class="nav-item active">
+                            <h:commandLink class="nav-link" action="#{employee.getToPage('edit')}">
+                                Edit Employee
+                            </h:commandLink>
+                        </li>
+                    </ul>
+                </h:form>
+            </div>
+        </nav>
+        
         <div class="container">
+            
             <div class="row mb-2">                
                 <div class="col-md-6 m-auto">
                     <h:form>
-                        <div class="input-group mt-3">
+                        <div class="input-group">
                             <h:inputText class="form-control" value="#{employee.id}" a:placeholder="Search By ID"></h:inputText>
                             <div class="input-group-append">
                                 <h:commandButton class="btn-sm input-group-text" value="Search" action="#{employee.searchByEmployeeId(employee.id)}"></h:commandButton>                           
@@ -24,7 +61,7 @@
             </div>
             <div class="row mb-4">
                 <div class="col-md-6 m-auto">
-                    <h2 class="text-center bg-info text-white pb-2">Update Employee</h2>
+                    <h2 class="text-center bg-dark text-white pb-2">Update Employee</h2>
                     <h:form>
                         <div class="form-group row mb-2">
                             <h:outputLabel class="col-sm-4 col-form-label font-weight-bold">Employee ID</h:outputLabel>
@@ -77,6 +114,7 @@
                     </h:form>
                 </div>
             </div>
+            
         </div>
     </h:body>
 </html>

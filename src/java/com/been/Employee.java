@@ -86,7 +86,7 @@ public class Employee {
 
     public Employee() {
     }
-    
+
     public Employee(Integer id, String firstname, String lastname, String title, String division, String building, String room) {
         this.id = id;
         this.firstname = firstname;
@@ -102,11 +102,11 @@ public class Employee {
     public String editEmployee(Integer empId) {
         EmployeeDao empDao = new EmployeeDao();
         Employee emp = empDao.getEmployeeById(empId);
-        if(emp != null) {
+        if (emp != null) {
             sessionMap.put("employee", empDao.getEmployeeById(empId));
         } else {
             sessionMap.put("employee", new Employee());
-        }        
+        }
         return "/edit.xhtml?faces-redirect=true";
     }
 
@@ -124,15 +124,15 @@ public class Employee {
         }
         return "/index.xhtml?faces-redirect=true";
     }
-    
+
     public void searchByEmployeeId(Integer empId) {
         EmployeeDao empDao = new EmployeeDao();
         Employee emp = empDao.getEmployeeById(empId);
-        if(emp != null) {
+        if (emp != null) {
             sessionMap.put("employee", empDao.getEmployeeById(empId));
         } else {
             this.clearEmp();
-        }       
+        }
     }
 
     public ArrayList<Employee> listEmployees() {
@@ -157,6 +157,10 @@ public class Employee {
         this.setBuilding(null);
         this.setRoom(null);
     }
-    
+
+    public String getToPage(String pageName) {
+        this.clearEmp();
+        return pageName != null ? pageName : "index";
+    }
 
 }
