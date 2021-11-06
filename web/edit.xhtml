@@ -47,21 +47,19 @@
         
         <div class="container">
             
-            <div class="row mb-2">                
+            <div class="row mb-4">
                 <div class="col-md-6 m-auto">
-                    <h:form>
+                    <h2 class="text-center bg-dark text-white pb-2">Update Employee</h2>
+                    
+                    <h:form class="mb-2">
                         <div class="input-group">
-                            <h:inputText class="form-control" value="#{employee.id}" a:placeholder="Search By ID"></h:inputText>
+                            <h:inputText class="form-control" value="#{employee.id}" a:placeholder="Search By Employee ID"></h:inputText>
                             <div class="input-group-append">
                                 <h:commandButton class="btn-sm input-group-text" value="Search" action="#{employee.searchByEmployeeId(employee.id)}"></h:commandButton>                           
                             </div>
                         </div>
                     </h:form> 
-                </div>
-            </div>
-            <div class="row mb-4">
-                <div class="col-md-6 m-auto">
-                    <h2 class="text-center bg-dark text-white pb-2">Update Employee</h2>
+                    
                     <h:form>
                         <div class="form-group row mb-2">
                             <h:outputLabel class="col-sm-4 col-form-label font-weight-bold">Employee ID</h:outputLabel>
